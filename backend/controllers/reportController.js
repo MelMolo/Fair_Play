@@ -145,4 +145,19 @@ const deleteReport = async (req, res) => {
   }
 };
 
-module.exports = { createReport, getReports, getReportById, updateReport, deleteReport };
+const deleteAllReports = async (req, res) => {
+  try {
+    // Supprime tous les rapports dans la table
+    const deletedCount = await Report.destroy({ where: {} });
+
+    if (deletedCount === 0) {
+      return res.status(404).json({ message: 'Aucun rapport trouvé à supprimer' });
+    }
+
+    res.status(200).json({ message: `${deletedCount} rapport(s) supprimé(s) avec succès` });
+  } catch (error) {
+    res.status(500).json({ message: 'Erreur serveur', error: error.message });
+  }
+};
+
+module.exports = { createReport, getReports, getReportById, updateReport, deleteReport, deleteAllReports };
