@@ -17,8 +17,32 @@ const Report = sequelize.define('Report', {
     type: DataTypes.INTEGER,
     allowNull: false
   },
+  firstName: {
+    type: DataTypes.STRING(100),
+    allowNull: false
+  },
+  lastName: {
+    type: DataTypes.STRING(100),
+    allowNull: false
+  },
+  evenment: {
+    type: DataTypes.STRING(100),
+    allowNull: false
+  },
+  type: {
+    type: DataTypes.STRING(100),
+    allowNull: false
+  },
+  country: {
+    type: DataTypes.STRING(100),
+    allowNull: false
+  },
   description: {
     type: DataTypes.TEXT,
+    allowNull: false
+  },
+  age: {
+    type: DataTypes.INTEGER,
     allowNull: false
   },
   date: {
@@ -29,7 +53,7 @@ const Report = sequelize.define('Report', {
     type: DataTypes.STRING(100),
     allowNull: false
   },
-  status: {
+  statut: {
     type: DataTypes.ENUM('pending', 'validated', 'rejected', 'deleted'),
     defaultValue: 'pending'
   },
@@ -37,9 +61,13 @@ const Report = sequelize.define('Report', {
     type: DataTypes.STRING(255),
     allowNull: true
   },
-  is_anonymous: {
+    is_anonymous: {
     type: DataTypes.BOOLEAN,
     defaultValue: false
+  },
+  gender: {
+    type: DataTypes.ENUM('male', 'female'),
+    defaultValue: 'male'
   },
   created_at: {
     type: DataTypes.DATE,
