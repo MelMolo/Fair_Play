@@ -7,6 +7,12 @@ const reportRoutes = require('./routes/reports');
 const commentRoutes = require('./routes/comments');
 const reportHistoryRoutes = require('./routes/reportHistory');
 const notificationRoutes = require('./routes/notifications');
+const sequelize = require('./config/db');
+const Report = require('./models/Report');
+
+sequelize.sync({ force: false })
+  .then(() => console.log('Tables synchronisées avec succès.'))
+  .catch(err => console.error('Erreur lors de la synchronisation :', err));
 
 dotenv.config();
 
