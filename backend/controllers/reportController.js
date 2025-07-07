@@ -78,7 +78,7 @@ const getReports = async (req, res) => {
       totalPages: Math.ceil(reports.count / limit)
     });
   } catch (error) {
-    res.status(500).json({ message: 'Erreur serveur' });
+    res.status(500).json({ message: 'Erreur sur le serveur' });
   }
 };
 
